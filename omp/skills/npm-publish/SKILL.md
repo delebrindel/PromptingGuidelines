@@ -9,10 +9,10 @@ Publishing changes shared state. Get explicit approval for the exact version and
 
 ## Before publishing
 
-1. Confirm the target: package name, version, dist-tag, and registry. Example: `@delebrindel/miso` `0.1.0-beta.0` with `--tag beta`.
+1. Confirm the target: package name, version, dist-tag, and registry. Example: `@scope/package` `1.2.0-beta.0` with `--tag beta`.
 2. Check the working tree is clean (`git status`) and the release commit is pushed. Pushing needs its own approval.
 3. Check the package version in `package.json` matches the version you are publishing.
-4. Review the file list: `npm pack --dry-run`. Only intended files should appear. For miso: `dist`, `src/theme.css`, `README.md`. Flag `.env`, build leftovers, or Storybook output.
+4. Review the file list: `npm pack --dry-run`. Only intended files should appear, matching the package's `files` field. Flag `.env`, build leftovers, or documentation-tool output.
 5. Run `npm publish --dry-run --tag <tag>`. This runs `prepublishOnly` (typecheck, tests, build). Read the output. Do not assume it passed.
 6. Check current tags: `npm view <pkg> dist-tags`.
 
@@ -24,7 +24,7 @@ Publishing changes shared state. Get explicit approval for the exact version and
 ## After publishing
 
 - Check tags again: `npm view <pkg> dist-tags`. The new version should sit under the tag you intended.
-- Known trap: npm points `latest` at the first version published when no `latest` tag exists, even with `--tag beta`. Miso's `latest` equals `0.1.0-beta.0` for this reason. Fix it only with approval: `npm dist-tag add <pkg>@<version> latest`.
+- Known trap: npm points `latest` at the first version published when no `latest` tag exists, even with `--tag beta`. A pre-release can end up as `latest`. Fix it only with approval: `npm dist-tag add <pkg>@<version> latest`.
 - Verify the release installs: `npm view <pkg>@<version> version`. Then, in a scratch folder outside the repo, run `npm install <pkg>@<version>` and import it.
 
 ## Rules

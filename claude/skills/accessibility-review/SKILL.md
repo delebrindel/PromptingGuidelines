@@ -9,9 +9,9 @@ Check behavior, not only markup. A component passes when a keyboard user and a s
 
 ## Automated checks
 
-1. Storybook a11y panel: Miso registers `@storybook/addon-a11y` in `.storybook/main.ts`. Open each changed story and read the Accessibility tab. Record violations by story name.
+1. Storybook a11y panel: if the project uses Storybook with `@storybook/addon-a11y` (check `.storybook/main.*`), open each changed story and read the Accessibility tab. Record violations by story name.
 2. Unit tests: query by role and accessible name (`getByRole`, `getByLabelText`). A failing query means the role or name is missing. Fix the component. Do not switch to `getByTestId` to make the query pass.
-3. Miso has no axe-based test layer. Do not add an axe or other a11y dependency without approval.
+3. If the project has no automated a11y test layer, do not add an axe or other a11y dependency without approval.
 
 ## Manual keyboard pass
 
@@ -24,7 +24,7 @@ Check behavior, not only markup. A component passes when a keyboard user and a s
 
 ## Visual checks
 
-- Contrast in light and dark themes. Check token values in the theme file (Miso: `src/theme.css`). Body text needs 4.5:1. Large text and UI component boundaries need 3:1.
+- Contrast in light and dark themes. Check token values in the project's theme or design-token file. Body text needs 4.5:1. Large text and UI component boundaries need 3:1.
 - Do not use color alone for state such as errors or selected tabs.
 - Respect `prefers-reduced-motion` for any animation you add.
 - At 390px width or 200% zoom, content reflows without horizontal scrolling and nothing is hidden.

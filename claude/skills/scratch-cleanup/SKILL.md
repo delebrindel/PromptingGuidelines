@@ -1,20 +1,20 @@
 ---
 name: scratch-cleanup
-description: Find, classify, and remove scratch files, logs, previews, and temporary shot folders left by our work, only after explicit confirmation. Use when cleaning up after a task, when the drive root or a repo has leftover output, or when asked to remove temporary files.
+description: Find, classify, and remove scratch files, logs, previews, and temporary shot folders left by a task, only after explicit confirmation. Use when cleaning up after a task, when the filesystem root or a repo has leftover output, or when asked to remove temporary files.
 ---
 
 # Scratch cleanup
 
-Delete only files you can name and tie to a task. The drive root and the user folders hold personal data and installers.
+Delete only files you can name and tie to a task. The filesystem root and the home and user folders hold personal data and installers.
 
 ## Where scratch goes
 
-- Write new scratch output to `D:/scratch/<task>/`. Create the folder when you need it.
-- Do not write logs, previews, or debug images at the drive root, inside a repo, or inside a user folder.
+- Write new scratch output to a dedicated folder outside any repo, for example `<scratch-root>/<task>/`. Create the folder when you need it.
+- Do not write logs, previews, or debug images at the filesystem root, inside a repo, or inside a home or user folder.
 
 ## Inventory
 
-1. Start from known paths: `D:/scratch/` and the leftovers recorded for this task. Do not glob the drive root.
+1. Start from known paths: the scratch folder and the leftovers recorded for this task. Do not glob the filesystem root or home folders.
 2. Check each path exists. Record its size and modified date.
 3. Classify each item:
    - **scratch**: logs, previews, debug images, and build output from our runs. Safe to delete after confirmation.
