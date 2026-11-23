@@ -100,6 +100,6 @@ Read the matching skill from `skill://` before starting that task:
 - `code-security-audit`: evidence-based security review.
 - `npm-publish`: publishing packages, dist-tags, one-time passwords.
 - `db-migration`: writing, testing, and applying SQL migrations.
-- `screenshot-capture`: capturing and verifying portfolio screenshots.
+- `screenshot-capture`: capturing and verifying project screenshots.
 - `accessibility-review`: keyboard, focus, screen-reader, and contrast checks.
 - `scratch-cleanup`: finding and removing scratch output after confirmation.
